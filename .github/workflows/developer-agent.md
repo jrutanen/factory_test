@@ -5,8 +5,8 @@ on:
 if: github.event.label.name == 'execute'
 permissions:
   issues: read
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
   repository-projects: read
   statuses: read
 safe-outputs:
