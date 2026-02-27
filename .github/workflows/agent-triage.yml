@@ -1,0 +1,21 @@
+name: AI Triage Agent
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analyze Issue with Gemini
+        run: |
+          # This script sends the issue text to Gemini
+          # Gemini returns a structured 'Technical Spec' 
+          # The script then posts that spec as a comment
+          curl https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${{ secrets.GEMINI_API_KEY }} \
+          -H 'Content-Type: application/json' \
+          -d '{
+            "contents": [{
+              "parts":[{"text": "Analyze this software requirement and provide a file-by-file implementation plan for a web app: ${{ github.event.issue.body }}"}]
+            }]
+          }' > plan.json

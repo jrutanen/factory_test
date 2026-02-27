@@ -1,0 +1,32 @@
+---
+on:
+  issues:
+    types: [labeled]
+if: github.event.label.name == 'execute'
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+tools:
+  - github:
+      allow-issue-comments: true
+      allow-pr-creation: true
+engine: gemini-3-flash  # Specifically using Flash for speed/cost
+---
+
+# Task: Implement Feature from Discussion
+You are the Lead Developer. Your goal is to turn the refined issue discussion into a working Pull Request.
+
+## 1. Gather Context
+- Read the initial issue description for the core requirements.
+- **CRITICAL**: Read every comment in the issue thread to find the "definition of ready" and any decisions made during elaboration.
+- If any technical choices (like language or framework) were finalized in the comments, stick to them.
+
+## 2. Execute Implementation
+- Use the `github` tool to create a new branch named `feat/ai-build-${{ github.event.issue.number }}`.
+- Write the application code, ensuring it follows the architecture discussed in the comments.
+- Include a basic test file for the primary functionality.
+
+## 3. Submit Work
+- Open a Pull Request back to the `main` branch.
+- In the PR description, summarize which parts of the discussion you implemented.
