@@ -14,6 +14,7 @@ safe-outputs:
 tools:
   github: null
   repo-memory: null
+command: gemini -m gemini-3-flash --yolo --output-format stream-json
 engine: gemini
 ---
 
