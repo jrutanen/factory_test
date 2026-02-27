@@ -14,8 +14,9 @@ safe-outputs:
 tools:
   github: null
   repo-memory: null
+engine: custom
 command: gemini -m gemini-3-flash --yolo --output-format stream-json
-engine: gemini
+
 ---
 
 # Task: Implement Feature from Discussion
