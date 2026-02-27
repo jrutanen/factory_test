@@ -9,6 +9,9 @@ permissions:
   pull-requests: read
 safe-outputs:
   id-token: write
+env:
+  # This environment variable tells the gemini engine to use Flash specifically
+  GEMINI_MODEL: gemini-3-flash
 tools:
   github: null
   repo-memory: null

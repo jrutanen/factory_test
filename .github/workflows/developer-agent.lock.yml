@@ -22,7 +22,7 @@
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"a7c151ef985e8c8d35b6fc404e9bf247920c8a83dd538af1c8523a7264cf6d69","compiler_version":"v0.50.7"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"c64a632faff53fd8eb94a17e0ead2d585865022d87c8966e103e46e6a3ed592d","compiler_version":"v0.50.7"}
 
 name: "Task: Implement Feature from Discussion"
 "on":
@@ -36,6 +36,9 @@ concurrency:
   group: "gh-aw-${{ github.workflow }}-${{ github.event.issue.number }}"
 
 run-name: "Task: Implement Feature from Discussion"
+
+env:
+  GEMINI_MODEL: gemini-3-flash
 
 jobs:
   activation:
