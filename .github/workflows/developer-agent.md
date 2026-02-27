@@ -5,13 +5,12 @@ on:
 if: github.event.label.name == 'execute'
 permissions:
   issues: read
-  contents: read
-  pull-requests: read
+  contents: write
+  pull-requests: write
+  repository-projects: read
+  statuses: read
 safe-outputs:
   id-token: write
-env:
-  # This environment variable tells the gemini engine to use Flash specifically
-  GEMINI_MODEL: gemini-3-flash
 tools:
   github: null
   repo-memory: null
@@ -19,6 +18,8 @@ engine: gemini
 ---
 
 # Task: Implement Feature from Discussion
+**Model Override: Use gemini-3-flash**
+
 You are the Lead Developer. Your goal is to turn the refined issue discussion into a working Pull Request.
 
 ## 1. Gather Context
