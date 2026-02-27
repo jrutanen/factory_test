@@ -4,14 +4,15 @@ on:
     types: [labeled]
 if: github.event.label.name == 'execute'
 permissions:
-  contents: write
-  pull-requests: write
   issues: read
+  contents: read
+  pull-requests: read
+safe-outputs:
+  id-token: write
 tools:
-  - github:
-      allow-issue-comments: true
-      allow-pr-creation: true
-engine: gemini-3-flash  # Specifically using Flash for speed/cost
+  github: null
+  repo-memory: null
+engine: gemini
 ---
 
 # Task: Implement Feature from Discussion
